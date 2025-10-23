@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>QuickNotes 📝</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="/icons/android-chrome-192x192.png"/>
+  <link rel="icon" type="image/png" href="/icons/android-chrome-512x512.png"/>  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png"/>  <link rel="icon" type="image/png" href="/icons/favicon.ico"/>
+</head>
+<body>
+  <main class="container" id="app" aria-labelledby="appTitle">
+    <header class="topbar">
+      <div class="topbar__spacer" aria-hidden="true"></div>
+      <h1 id="appTitle" class="brand">QuickNotes <span aria-hidden="true">📝</span></h1>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+        <span class="theme-toggle__icon">🌙</span>
+      </button>
+    </header>
+    <p class="subtitle">Your personal note-taking and organization tool</p>
+
+    <section class="auth" aria-label="Authentication" id="authSection">
+      <div id="authSignedOut">
+        <form id="authForm" autocomplete="off">
+          <input id="emailInput" type="email" placeholder="Enter email for magic link" aria-label="Email" />
+          <button id="signInBtn" type="submit" class="pill pill--outline">Send login link</button>
+        </form>
+        <small class="muted" id="authHint">Login to sync notes across devices.</small>
+      </div>
+      <div id="authSignedIn">
+        <small>Signed in as <strong id="userEmail">-</strong></small>
+        <button id="signOutBtn" class="pill pill--outline">Sign out</button>
+      </div>
+      <div id="authMsg" class="visually-hidden" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="new-note" aria-label="Create a new note">
+      <button id="createNoteBtn" class="pill pill--accent">Create Note</button>
+    </section>
+
+    <section class="list-wrap" aria-live="polite">
+      <ul id="noteList" class="note-list" aria-label="Note list"></ul>
+      <div id="empty" class="empty">No notes — create your first note above.</div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-top">
+        <small id="count" class="count">0 notes</small>
+      </div>
+    </footer>
+
+    <!-- Modal for Create/Edit Note -->
+    <div id="noteModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+      <div class="modal__content">
+        <header class="modal__header">
+          <h2 id="modalTitle">Create Note</h2>
+          <button id="closeModal" class="icon-btn icon-btn--ghost" aria-label="Close modal">&times;</button>
+        </header>
+        <form id="noteForm" autocomplete="off">
+          <label class="field">
+            <span class="field__label">Title</span>
+            <input id="noteTitleInput" type="text" placeholder="A note to remember..." aria-label="Note title" required maxlength="200" />
+          </label>
+          <label class="field">
+            <span class="field__label">Content</span>
+            <textarea id="noteContentInput" placeholder="Write your note here..." aria-label="Note content" required rows="8" maxlength="5000"></textarea>
+          </label>
+          <div class="modal__actions">
+            <button type="button" id="cancelBtn" class="pill pill--ghost">Cancel</button>
+            <button type="submit" id="saveNoteBtn" class="pill pill--success">Save Note</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
