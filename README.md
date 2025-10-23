@@ -1,20 +1,34 @@
-# QuickNotes — Supabase‑backed Note‑Taking App
+# 📝 QuickNotes — Supabase‑backed Note‑Taking App
 
 A lightweight, modern note‑taking app with email magic‑link authentication and per‑user cloud sync via Supabase.
 
----
-
-## Features
-
-- Notes: Create, edit, and delete notes (title + content)
-- Auth: Email magic link sign‑in/sign‑out
-- Cloud sync: Per‑user notes stored in Supabase (`public.notes`)
-- Modal editor: Clean create/edit dialog
-- Responsive & accessible UI
+> ✨ Built for developers and learners exploring full-stack web apps with modern cloud APIs.
 
 ---
 
-## Project Structure
+## 🚀 Tech Stack
+
+| Layer | Technology |
+|:------|:------------|
+| **Frontend** | HTML5, CSS3, Vanilla JavaScript (ES6+) |
+| **Backend (as-a-Service)** | [Supabase](https://supabase.com) — Database, Auth, API |
+| **Optional Server** | Java HTTP Utility Server |
+| **Database** | PostgreSQL (via Supabase) |
+| **Auth** | Supabase Magic-Link Email Authentication |
+
+---
+
+## ✨ Features
+
+- ✅ Notes: Create, edit, and delete notes (title + content)
+- ✅ Auth: Email magic link sign‑in/sign‑out
+- ✅ Cloud sync: Per‑user notes stored in Supabase (`public.notes`)
+- ✅ Modal editor: Clean create/edit dialog
+- ✅ Responsive & accessible UI
+
+---
+
+## 📁 Project Structure
 
 - `index.html` — App shell, auth section, notes list, and modal markup
 - `styles.css` — Modern styling, responsive layout
@@ -24,23 +38,15 @@ A lightweight, modern note‑taking app with email magic‑link authentication a
 
 ---
 
-## Run Locally
+## 💻 Run Locally
 
-1) Install/start a static server in the project directory:
-
-```bash
-# using npx
-npx serve -l 3000 /home/aayushmaan/QuickNotes
-
-# or Python
-python3 -m http.server 3000 --directory /home/aayushmaan/QuickNotes
-```
+1) Install/start a static server in the project directory.
 
 2) Open `http://localhost:3000` in your browser.
 
 ---
 
-## Configure Supabase
+## ⚙️ Configure Supabase
 
 1) In the Supabase dashboard, copy your Project URL and anon key, then set them in `config.js`:
 
@@ -83,7 +89,7 @@ create policy "notes_delete_own" on public.notes
 
 ---
 
-## Usage
+## 🪶 Usage
 
 1) On the app page, enter your email → “Send login link”.
 2) Click the magic link in your email to return and sign in.
@@ -93,7 +99,7 @@ Notes are stored per user in `public.notes` and will reload whenever you sign in
 
 ---
 
-## Java Utility Server
+## ☕ Java Utility Server
 
 You can run a small Java HTTP server if you want a Java component:
 
@@ -105,17 +111,17 @@ It listens on `http://localhost:8787` and exposes simple endpoints. The app does
 
 ---
 
-## Troubleshooting
+## 🧰 Troubleshooting
 
-- Magic link doesn’t sign you in:
+- ❌ Magic link doesn’t sign you in:
   - Ensure Site URL and Redirect URLs in Supabase match your local origin exactly (e.g., `http://localhost:3000`).
   - Try a hard refresh after clicking the magic link.
-- Insert/Select errors:
+- ❌ Insert/Select errors:
   - Verify `public.notes` exists and RLS policies are applied as above.
   - Open DevTools → Network → check `rest/v1/notes` response for errors.
 
 ---
 
-## License
+## 📜 License
 
-MIT
+This project is open-source under the MIT License — free to use, modify, and share.
