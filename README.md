@@ -124,4 +124,4 @@ It listens on `http://localhost:8787` and exposes simple endpoints. The app does
 
 ## 📜 License
 
-This project is open-source under the MIT License — free to use, modify, and share.
+This project is open-source under the MIT License — free to use, modify, and share
